@@ -13,18 +13,18 @@ int main()
 
     alarmLed = OFF;
 
-    printf ("hola!\n"); // baudrate 9600
+    printf ("hola!\n"); // @note usar baudrate 9600
     while (true) {
         if ( gasDetector == ON ) {
             alarmLed = ON;
-            ledStatus = ON;
+  
         }
 
-        printf ("%d\n", ledStatus); // baudrate 9600
+        printf ("%i\n", alarmLed.read()); // @note imprime el estado del led
 
         if ( gasDetector == OFF ) {
             alarmLed = OFF;
-            ledStatus = OFF;
+       
         }
     }
 }
