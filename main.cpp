@@ -13,7 +13,7 @@ int main()
 
     alarmLed = OFF;
 
-    printf ("hola!\n"); // @note usar baudrate 9600
+    printf ("holaaa!\n"); // @note usar baudrate 9600
     while (true) {
         if ( gasDetector == ON ) {
             alarmLed = ON;
