@@ -21,7 +21,7 @@ int main()
             printf ("led encendido %i\n", alarmLed.read()); // @note imprime el estado del led
             printf ("gas detectado:  %i\n", gasDetector.read()); // @note imprime el estado del led
 
-        } else( gasDetector == OFF ) {    
+        } else {    
         /*
         @note usa operator int() definido en DigitalIn y llama al metodo read
         */
