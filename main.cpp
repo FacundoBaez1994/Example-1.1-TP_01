@@ -3,28 +3,31 @@
 
 int main()
 {
-    DigitalIn gasDetector(D2);
+    DigitalIn gasDetector(D2);  // @note Constructor DigitalIn
 
-    DigitalOut alarmLed(LED1);
+    DigitalOut alarmLed(LED1);  // @note Constructor DigitalOUT
 
-    gasDetector.mode(PullDown);
+    gasDetector.mode(PullDown);  // @note metodo de la clase DigitalIn
 
     bool ledStatus = OFF;
 
-    alarmLed = OFF;
+    alarmLed = OFF; // @note operador "=" sobrecargado de la clase DigitalOUT
 
     printf ("holaaa!\n"); // @note usar baudrate 9600
     while (true) {
         if ( gasDetector == ON ) {
-            alarmLed = ON;
-  
-        }
 
-        printf ("%i\n", alarmLed.read()); // @note imprime el estado del led
+            alarmLed = ON; // @note operador "=" sobrecargado de la clase DigitalOUT
+            printf ("led encendido %i\n", alarmLed.read()); // @note imprime el estado del led
+            printf ("gas detectado:  %i\n", gasDetector.read()); // @note imprime el estado del led
 
-        if ( gasDetector == OFF ) {
+        } else( gasDetector == OFF ) {    
+        /*
+        @note usa operator int() definido en DigitalIn y llama al metodo read
+        */
             alarmLed = OFF;
-       
+            printf ("led apagado %i\n", alarmLed.read()); // @note imprime el estado del led
+            printf ("gas no detectado:  %i\n", gasDetector.read()); // @note imprime el estado del led
         }
     }
 }
